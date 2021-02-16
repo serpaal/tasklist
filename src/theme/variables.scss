@@ -83,6 +83,14 @@
    --ion-color-magenta-contrast-rgb: 255,255,255;
    --ion-color-magenta-shade: #821a90;
    --ion-color-magenta-tint: #9f35ad;
+
+  /** tasklist **/
+  --ion-color-tasklist: #5541ec;
+  --ion-color-tasklist-rgb: 85,65,236;
+  --ion-color-tasklist-contrast: #ffffff;
+  --ion-color-tasklist-contrast-rgb: 255,255,255;
+  --ion-color-tasklist-shade: #4b39d0;
+  --ion-color-tasklist-tint: #6654ee;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -251,4 +259,13 @@
   --ion-color-contrast-rgb: var(--ion-color-magenta-contrast-rgb) !important;
   --ion-color-shade: var(--ion-color-magenta-shade) !important;
   --ion-color-tint: var(--ion-color-magenta-tint) !important;
+}
+
+.ion-color-tasklist {
+  --ion-color-base: var(--ion-color-tasklist);
+  --ion-color-base-rgb: var(--ion-color-tasklist-rgb);
+  --ion-color-contrast: var(--ion-color-tasklist-contrast);
+  --ion-color-contrast-rgb: var(--ion-color-tasklist-contrast-rgb);
+  --ion-color-shade: var(--ion-color-tasklist-shade);
+  --ion-color-tint: var(--ion-color-tasklist-tint);
 }
