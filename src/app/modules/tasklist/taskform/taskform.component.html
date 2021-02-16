@@ -1,0 +1,69 @@
+<ion-header translucent>
+  <ion-toolbar color="magenta">
+    <ion-title class="ion-text-capitalize">{{action}}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">
+        <ion-icon slot="icon-only" name="close-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding class="form-content">
+  <form [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label position="floating" color="primary">Titulo</ion-label>
+      <ion-input type="text" formControlName="title"></ion-input>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.title">
+        <div class="error-message" *ngIf="validations_form.get('title').hasError(validation.type) && (validations_form.get('title').dirty || validations_form.get('title').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    
+    <ion-item>
+      <ion-label position="floating" color="primary">Descripcion</ion-label>
+      <ion-textarea type="text" formControlName="description"></ion-textarea>
+    </ion-item>   
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.description">
+        <div class="error-message" *ngIf="validations_form.get('description').hasError(validation.type) && (validations_form.get('description').dirty || validations_form.get('description').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Fecha Incio</ion-label>
+      <ion-datetime formControlName="start" displayFormat="DD/MM/YYYY"></ion-datetime>   
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.start">
+        <div class="error-message" *ngIf="validations_form.get('start').hasError(validation.type) && (validations_form.get('start').dirty || validations_form.get('start').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+
+    <ion-item>
+      <ion-label position="floating" color="primary">Hora Inicio</ion-label>
+      <ion-datetime formControlName="hour" displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.hour">
+        <div class="error-message" *ngIf="validations_form.get('hour').hasError(validation.type) && (validations_form.get('hour').dirty || validations_form.get('hour').touched)">
+          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <!--
+    <ion-item>
+      <ion-label color="primary">Completado</ion-label>
+      <ion-checkbox color="primary"></ion-checkbox>
+    </ion-item>
+    -->
+    <ion-button color="primary" class="submit-btn" expand="block" type="submit" [disabled]="!validations_form.valid">Guardar</ion-button>
+  </form>
+</ion-content>
